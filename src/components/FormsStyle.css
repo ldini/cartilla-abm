@@ -1,0 +1,187 @@
+/* PrestadorForm.css */
+
+.component-form {
+    max-width: 400px;
+    margin: auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    text-align: justify;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input,select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    border: 1px solid #959191;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-top: 3px;
+    background: #d3d4d8;
+    color: black;
+  }
+  
+  button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  .titulo {
+    text-align: left;
+  }
+
+  .telephone-input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px; /* Añadimos un pequeño margen inferior para separar los campos */
+  }
+  
+  .telephone-input input[type="text"] {
+    margin: 0; /* Eliminamos el margen de los inputs */
+  }
+  
+  .telephone-input button {
+    margin-left: 5px;
+    padding: 5px 10px; /* Ajustamos el padding del botón para hacerlo más pequeño */
+    font-size: 14px; /* Ajustamos el tamaño del texto del botón */
+  }
+
+  /* Estilo para la institucion table*/
+
+.institucion-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.institucion-table th, .institucion-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.institucion-table th {
+  background-color: #f2f2f2;
+}
+
+.delete-button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.delete-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Componetes que tiene select para eliminar */
+
+.guardia-delete-container {
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.guardia-list {
+  list-style: none;
+  padding: 0;
+}
+
+.guardia-item {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  transition: background-color 0.3s ease;
+}
+
+.guardia-item:hover {
+  background-color: #e3e3e3;
+}
+
+.guardia-item.selected {
+  background-color: #d9edf7;
+}
+
+.delete-button {
+  padding: 8px 16px; /* Se ajusta el padding para hacer el botón un poco más pequeño */
+  background-color: #d9534f; /* Color de fondo rojo */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+  background-color: #c9302c; /* Color de fondo rojo más oscuro al pasar el ratón */
+}
+
+
+.edit-button {
+  padding: 8px 16px; /* Se ajusta el padding para hacer el botón un poco más pequeño */
+  background-color: #5bc0de; /* Color de fondo azul */
+  color: #fff; /* Color de texto blanco */
+  border: none;
+  border-radius: 5px; /* Borde redondeado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-right: 8px; /* Espaciado entre botones */
+}
+
+.edit-button:hover {
+  background-color: #31b0d5; /* Color de fondo azul más oscuro al pasar el ratón */
+}
+
+
+.create-button {
+  padding: 8px 16px; /* Tamaño del padding ajustado para hacer el botón más pequeño */
+  background-color: #007bff; /* Color de fondo del botón */
+  color: #fff; /* Color del texto del botón */
+  border: none; /* Eliminar borde del botón */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transición suave al pasar el ratón */
+  margin-right: 10px; /* Margen derecho para separar el botón de otros elementos */
+}
+
+.create-button:hover {
+  background-color: #0056b3; /* Cambio de color al pasar el ratón sobre el botón */
+}
+
+.horario-inputs {
+  display: flex;
+  gap: 10px; /* Espacio entre los elementos */
+}
+
+.horario-inputs > div {
+  flex: 1; /* Hace que los elementos ocupen el mismo espacio */
+}
+
+.small-button {
+  width: 30px; /* Ajusta el ancho según tu preferencia */
+  height: 30px; /* Ajusta el alto según tu preferencia */
+  font-size: 14px; /* Ajusta el tamaño de la fuente según tu preferencia */
+}
+
+

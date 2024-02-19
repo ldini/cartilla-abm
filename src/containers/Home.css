@@ -1,0 +1,42 @@
+/* Estilos generales */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    /* display: flex; */
+    height: 100vh;
+  }
+  
+  /* Estilos para Home */
+  .home-container {
+    display: flex;
+    height: 100%;
+    /* flex: 1; */
+  }
+  
+  .form-container {
+    flex: 1;
+    padding: 20px;
+  }
+  
+  /* Estilos para Nav */
+  .nav {
+    background-color: #333;
+    padding: 20px 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  button {
+    background-color: #c8d2c8;
+    color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #969f97;
+  }
+  
