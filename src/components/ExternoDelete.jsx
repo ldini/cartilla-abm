@@ -9,7 +9,7 @@ const ExternoDelete = () => {
 
   const fetchGuardias = async () => {
     try {
-      const response = await fetch('http://localhost:3000/institucion/listar_externos');
+      const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/listar_externos');
       if (!response.ok) {
         throw new Error('Error al obtener externos');
       }
@@ -30,7 +30,7 @@ const ExternoDelete = () => {
             especialidadId: guardia.especialidadId,
             institucionId: guardia.institucionId
           });
-        const response = await fetch(`http://localhost:3000/institucion/delete_externo`, {
+        const response = await fetch(`import.meta.env.VITE_API_URL/institucion/delete_externo`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const ExternoDelete = () => {
 
   return (
     <div >
-      <h3 className='titulo'>Externos</h3>
+      <h2 className='titulo'>Externos</h2>
       <table className="institucion-table">
         <thead>
           <tr>

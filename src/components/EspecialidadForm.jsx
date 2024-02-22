@@ -7,7 +7,7 @@ const EspecialidadForm = () => {
   const manejarEnvio = async (event) => {
     event.preventDefault();
     try {
-      const response = await fetch('http://localhost:3000/especialidad/create', {
+      const response = await fetch(import.meta.env.VITE_API_URL+'/especialidad/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ const EspecialidadForm = () => {
   return (
     <form className="component-form" onSubmit={manejarEnvio}>
       <div>
-        <h3 className='titulo'>Agregar Especialidad</h3>
+        <h2 className='titulo'>Agregar Especialidad</h2>
       </div>
       <div className="form-group">
         <label>Nombre:</label>
@@ -40,7 +40,7 @@ const EspecialidadForm = () => {
         />
       </div>
 
-      <button type="submit">Cargar</button>
+      <button type="submit" className='btn-w-100'>Cargar</button>
     </form>
   );
 };

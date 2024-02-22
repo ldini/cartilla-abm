@@ -24,8 +24,10 @@
         ariaHideApp={false} 
         >
         <div>
-            <h2>Editar</h2>
-            <button onClick={handleCloseModal}>x</button>
+            <div className='header-modal'>
+                <h2>Editar</h2>
+                <button onClick={handleCloseModal}>x</button>
+            </div>
             <PrestadorFormUpdate onClose={handleCloseModal} prestador={prestador}/>
         </div>
         </Modal>

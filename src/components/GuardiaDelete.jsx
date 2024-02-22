@@ -9,7 +9,7 @@ const GuardiaDelete = () => {
 
   const fetchGuardias = async () => {
     try {
-      const response = await fetch('http://localhost:3000/institucion/listar_guardia');
+      const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/listar_guardia');
       if (!response.ok) {
         throw new Error('Error al obtener las guardias');
       }
@@ -30,7 +30,7 @@ const GuardiaDelete = () => {
             especialidadId: guardia.especialidadId,
             institucionId: guardia.institucionId
           });
-        const response = await fetch(`http://localhost:3000/institucion/delete_guardia`, {
+        const response = await fetch(`import.meta.env.VITE_API_URL/institucion/delete_guardia`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

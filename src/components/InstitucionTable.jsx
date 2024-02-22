@@ -32,7 +32,7 @@ const InstitucionTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/institucion/listar');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/listar');
         if (!response.ok) {
           throw new Error('Error al obtener las instituciones');
         }
@@ -47,7 +47,7 @@ const InstitucionTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/institucion/${id}`, {
+      const response = await fetch(`import.meta.env.VITE_API_URL/institucion/${id}`, {
         method: 'DELETE'
       });
       if (!response.ok) {
@@ -67,10 +67,11 @@ const InstitucionTable = () => {
 
   return (
     <>
-
-    <h3 className='titulo'>Institucion</h3>
-    <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div className='titulo-btn'>
+        <h2 className='titulo'>Instituciones</h2>
         <button className='create-button' onClick={handleOpenModal}>Crear Institucion</button>
+      </div>
+      <div style={{ display: 'flex', alignItems: 'center' }}>
         <CrearInstitucionModal isOpen={modalIsOpen} onClose={handleCloseModal} />
         {institucionSeleccionada && (
           <CrearInstitucionModalEdit
@@ -87,7 +88,7 @@ const InstitucionTable = () => {
           <th>Zona</th>
           <th>Dirección</th>
           <th>Tipo</th>
-          <th></th>
+          <th>Editar/Eliminar</th>
         </tr>
       </thead>
       <tbody>

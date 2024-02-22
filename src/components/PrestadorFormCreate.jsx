@@ -21,7 +21,7 @@ const PrestadorFormCreate = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/especialidad/listar');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/especialidad/listar');
         if (!response.ok) {
           throw new Error('Error al obtener las especialidades');
         }
@@ -62,7 +62,7 @@ const PrestadorFormCreate = (props) => {
           alert('Por favor, ingrese una zona y una direccion correcta.');
           throw new Error('Los campos de dirección y zona son obligatorios.');
         }
-        const response = await fetch('http://localhost:3000/prestador/create', {
+        const response = await fetch(import.meta.env.VITE_API_URL+'/prestador/create', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -187,10 +187,11 @@ const eliminarHorario = (index) => {
         </select>
       </div>
 
-      <div className="form-group">
+      <div className="form-group independiente">
       <label>Independiente?</label>
         <input
           type="checkbox"
+          className='checkbox'
           checked={mostrarCampos}
           onChange={() => setMostrarCampos(!mostrarCampos)}
         />
@@ -236,7 +237,7 @@ const eliminarHorario = (index) => {
                 checked={telefonoTemporalWhatsapp}
                 onChange={manejarCambioTelefonoWhatsapp}
               />
-              <button type="button" onClick={agregarTelefono}>+</button>
+              <button className='small-button' type="button" onClick={agregarTelefono}>+</button>
             </div>
           </div>
           <div className="form-group">
@@ -246,17 +247,21 @@ const eliminarHorario = (index) => {
                 <input type="text" value={telefono.interno} placeholder="Interno" readOnly />
                 <input type="text" value={telefono.whatapp ? "SI" : "NO"} placeholder="Whatsapp" readOnly />
 
-                <button type="button" onClick={() => eliminarTelefono(index)}>-</button>
+                <button className='small-button' type="button" onClick={() => eliminarTelefono(index)}>-</button>
               </div>
             ))}
         </div>
 
         <div>
+          <div className='horario-label'>
+          <label>Día:</label>
+          <label>Inicio:</label>
+          <label>Fin:</label>
+        </div>
       <div className="horario-inputs">
     <div> 
-        <label>Día:</label>
         <select className="" value={dia} onChange={(e) => setDia(e.target.value)}>
-        <option value="">Seleccionar día...</option>
+        <option value="">Seleccionar dia...</option>
         <option value="Lunes">Lunes</option>
         <option value="Martes">Martes</option>
         <option value="Miércoles">Miércoles</option>
@@ -268,15 +273,13 @@ const eliminarHorario = (index) => {
     </div>
 
     <div>
-      <label>inicio:</label>
       <input className="small-input" type="text" value={inicio} onChange={(e) => setInicio(e.target.value)} />
     </div>
 
     <div>
-      <label>fin:</label>
       <input className="small-input" type="text" value={fin} onChange={(e) => setFin(e.target.value)} />
     </div>
-    <button onClick={agregarHorario}>+</button>
+    <button className='small-button' onClick={agregarHorario}>+</button>
 
     </div>
         <div>
@@ -291,7 +294,7 @@ const eliminarHorario = (index) => {
               <div>
                 <input type="text" value={horario.hora_fin} readOnly />
               </div>
-              <button onClick={() => eliminarHorario(index)}>-</button>
+              <button className='small-button' onClick={() => eliminarHorario(index)}>-</button>
             </div>
           ))}
         </div>
@@ -301,7 +304,7 @@ const eliminarHorario = (index) => {
       )}
 
 
-      <button type="submit">Cargar</button>
+      <button type="submit" className='btn-w-100'>Cargar</button>
     </form>
   );
 };

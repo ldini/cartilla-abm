@@ -10,7 +10,7 @@ const ExternoForm = () => {
 
     const fetchInstituciones = async () => {
       try {
-        const response = await fetch('http://localhost:3000/institucion/listar');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/listar');
         if (!response.ok) {
           throw new Error('Error al obtener los datos de instituciones');
         }
@@ -24,7 +24,7 @@ const ExternoForm = () => {
 
     const fetchEspecialidades = async () => {
       try {
-        const response = await fetch('http://localhost:3000/especialidad/listar');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/especialidad/listar');
         if (!response.ok) {
           throw new Error('Error al obtener los datos de especialidades');
         }
@@ -52,7 +52,7 @@ const ExternoForm = () => {
     console.log(seleccion)
     event.preventDefault();
     try {
-        const response = await fetch('http://localhost:3000/institucion/create_externo', {
+        const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/create_externo', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
@@ -72,7 +72,7 @@ const ExternoForm = () => {
   return (
     <form className="component-form" onSubmit={handleSubmit}>
       <div>
-        <h3 className='titulo'>Nuevo Externo</h3>
+        <h2 className='titulo'>Nuevo Externo</h2>
       </div>
       <div className="form-group">
         <label>Institucion</label>
@@ -96,7 +96,7 @@ const ExternoForm = () => {
           ))}
         </select>
       </div>
-      <button className='form-group center' type="submit">Cargar</button>
+      <button className='form-group center btn-w-100' type="submit">Cargar</button>
     </form>
   );
 };

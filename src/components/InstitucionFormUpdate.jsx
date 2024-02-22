@@ -15,7 +15,7 @@ const InstitucionFormUpdate = (props) => {
   const manejarEnvio = async (event) => {
     event.preventDefault();
     try {
-        const response = await fetch(`http://localhost:3000/institucion/${props.institucion.id}`, {
+        const response = await fetch(`import.meta.env.VITE_API_URL/institucion/${props.institucion.id}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -75,7 +75,7 @@ const InstitucionFormUpdate = (props) => {
     <form className="component-form" onSubmit={manejarEnvio}>
 
       <div>
-        <h3 className='titulo'>Agregar Institucion</h3>
+        <h3 className='titulo'>Modificar institucion</h3>
       </div>
      
       <div className="form-group">
@@ -130,11 +130,11 @@ const InstitucionFormUpdate = (props) => {
           />
           <label>whatapp</label>
           <input
-            type="checkbox"
+            type="checkbox" className='checkbox'
             checked={telefonoTemporalWhatsapp}
             onChange={manejarCambioTelefonoWhatsapp}
           />
-          <button type="button" onClick={agregarTelefono}>+</button>
+          <button className='small-button' type="button" onClick={agregarTelefono}>+</button>
         </div>
       </div>
 
@@ -145,13 +145,13 @@ const InstitucionFormUpdate = (props) => {
             <input type="text" value={telefono.interno} placeholder="Interno" readOnly />
             <input type="text" value={telefono.whatapp ? "SI" : "NO"} placeholder="Whatsapp" readOnly />
 
-            <button type="button" onClick={() => eliminarTelefono(index)}>-</button>
+            <button className='small-button' type="button" onClick={() => eliminarTelefono(index)}>-</button>
           </div>
         ))}
       </div>
 
 
-      <button type="submit">Modificar</button>
+      <button type="submit" className='btn-w-100'>Editar</button>
     </form>
   );
 };

@@ -47,7 +47,7 @@
 
   .telephone-input {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     margin-bottom: 5px; /* Añadimos un pequeño margen inferior para separar los campos */
   }
   
@@ -55,12 +55,11 @@
     margin: 0; /* Eliminamos el margen de los inputs */
   }
   
-  .telephone-input button {
+  /*.telephone-input button {
     margin-left: 5px;
-    padding: 5px 10px; /* Ajustamos el padding del botón para hacerlo más pequeño */
-    font-size: 14px; /* Ajustamos el tamaño del texto del botón */
-  }
-
+    padding: 5px 10px; 
+    font-size: 14px;
+  }*/
   /* Estilo para la institucion table*/
 
 .institucion-table {
@@ -172,16 +171,91 @@
 .horario-inputs {
   display: flex;
   gap: 10px; /* Espacio entre los elementos */
+  align-items: baseline;
 }
 
 .horario-inputs > div {
   flex: 1; /* Hace que los elementos ocupen el mismo espacio */
 }
 
+
+.form-group .small-button,
 .small-button {
   width: 30px; /* Ajusta el ancho según tu preferencia */
   height: 30px; /* Ajusta el alto según tu preferencia */
   font-size: 14px; /* Ajusta el tamaño de la fuente según tu preferencia */
 }
 
+.horario-inputs .small-button,
+.telephone-input .small-button{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.header-modal{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.ReactModal__Content{
+  padding: 20px 60px !important;
+}
+
+.form-group .telephone-input input{
+  margin-right: 10px;
+}
+
+.form-group .telephone-input label{
+  margin-right: 10px;
+}
+
+.form-group .telephone-input .checkbox{
+  width: 10%;
+}
+
+.form-group.independiente{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.form-group.independiente label,
+.form-group.independiente input{
+  margin: 0;
+}
+
+.form-group.independiente .checkbox{
+  width: 10%;
+}
+
+.btn-w-100{
+  width: 100%;
+  text-align: center;
+}
+
+.form-container .titulo{
+  text-transform: uppercase;
+}
+
+.horario-label{
+  display: grid;
+  grid-template-columns: 30.5% 30.5% 30.5% 8.5%;
+  justify-items: start;
+}
+
+.titulo-btn{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.titulo-btn .create-button{
+  margin: 0;
+}
+
+.mb-10{
+  margin-bottom: 10px;
+}

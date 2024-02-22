@@ -14,7 +14,7 @@ const PrestadorInstitucionForm = (props) => {
 
   useEffect(() => {
     const obtenerPrestadores = async () => {
-      const response = await fetch('http://localhost:3000/prestador/listar');
+      const response = await fetch(import.meta.env.VITE_API_URL+'/prestador/listar');
       const data = await response.json();
       setPrestadores(data);
     };
@@ -23,7 +23,7 @@ const PrestadorInstitucionForm = (props) => {
 
 //   useEffect(() => {
 //     const obtenerInstituciones = async () => {
-//       const response = await fetch('http://localhost:3000/institucion/listar');
+//       const response = await fetch(import.meta.env.VITE_API_URL+'/institucion/listar');
 //       const data = await response.json();
 //       setInstituciones(data);
 //     };
@@ -33,7 +33,7 @@ const PrestadorInstitucionForm = (props) => {
   useEffect(() => {
     const filtrarNoInstituciones = async () => {
       if (prestadorSeleccionado !== '') {
-        const response = await fetch(`http://localhost:3000/institucion/listar/no/${prestadorSeleccionado}`);
+        const response = await fetch(`import.meta.env.VITE_API_URL/institucion/listar/no/${prestadorSeleccionado}`);
         const data = await response.json();
         setNoInstituciones(data);
       }
@@ -44,7 +44,7 @@ const PrestadorInstitucionForm = (props) => {
   useEffect(() => {
     const filtrarInstituciones = async () => {
       if (prestadorSeleccionado !== '') {
-        const response = await fetch(`http://localhost:3000/institucion/listar/${prestadorSeleccionado}`);
+        const response = await fetch(`import.meta.env.VITE_API_URL/institucion/listar/${prestadorSeleccionado}`);
         const data = await response.json();
         setInstituciones(data);
       }
@@ -55,7 +55,7 @@ const PrestadorInstitucionForm = (props) => {
   const handleAsignarClick = async () => {
     if (prestadorSeleccionado.trim() !== '' && institucionSeleccionada.trim() !== '') {
         try {
-          const response = await fetch('http://localhost:3000/prestador/asignar_institucion', {
+          const response = await fetch(import.meta.env.VITE_API_URL+'/prestador/asignar_institucion', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -112,8 +112,9 @@ const PrestadorInstitucionForm = (props) => {
 
   return (
     <div>
-      <h2>Asignar Prestador a Institución</h2>
-      <div>
+      <h2 className='titulo'>Asignar Prestador a Institución</h2>
+      <div className='component-form'>
+      <div className='mb-10'>
         <label>Seleccionar Prestador:</label>
         <select
           value={prestadorSeleccionado}
@@ -127,7 +128,7 @@ const PrestadorInstitucionForm = (props) => {
           ))}
         </select>
       </div>
-      <div>
+      <div className='mb-10'>
         <label>Seleccionar Institución:</label>
         <select
           value={institucionSeleccionada}
@@ -142,12 +143,16 @@ const PrestadorInstitucionForm = (props) => {
         </select>
       </div>
       {/* Componente para seleccionar horarios */}
-      <div>
-      <div className="horario-inputs">
-      <label>Día:</label>
+    <div>
+    <div className='horario-label'>
+        <label>Día:</label>
+        <label>Hora de inicio:</label>
+        <label>Hora de fin:</label>
+    </div>
+    <div className="horario-inputs">
     <div>
         <select className="" value={dia} onChange={(e) => setDia(e.target.value)}>
-        <option value="">Seleccionar día...</option>
+        <option value="">Seleccionar dia...</option>
         <option value="Lunes">Lunes</option>
         <option value="Martes">Martes</option>
         <option value="Miércoles">Miércoles</option>
@@ -157,12 +162,11 @@ const PrestadorInstitucionForm = (props) => {
         <option value="Domingo">Domingo</option>
         </select>
     </div>
-    <label>Hora de inicio:</label>
-
+    
     <div>
         <input className="small-input" type="text" value={inicio} onChange={(e) => setInicio(e.target.value)} />
     </div>
-    <label>Hora de fin:</label>
+
 
     <div>
         <input className="small-input" type="text" value={fin} onChange={(e) => setFin(e.target.value)} />
@@ -183,12 +187,12 @@ const PrestadorInstitucionForm = (props) => {
               <div>
                 <input type="text" value={horario.fin} readOnly />
               </div>
-              <button onClick={() => eliminarHorario(index)}>-</button>
+              <button className='small-button' onClick={() => eliminarHorario(index)}>-</button>
             </div>
           ))}
         </div>
       </div>     
-      <button onClick={handleAsignarClick}>Asignar</button>
+      <button className='btn-w-100' onClick={handleAsignarClick}>Asignar</button>
 
       {prestadorSeleccionado && instituciones.length > 0 && (
         <div>
@@ -204,6 +208,8 @@ const PrestadorInstitucionForm = (props) => {
         {prestadorSeleccionado && instituciones.length === 0 && (
         <p>No tiene instituciones asignadas</p>
         )}
+      </div>
+      
 
     </div>
   );

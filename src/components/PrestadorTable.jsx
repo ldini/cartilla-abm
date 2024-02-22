@@ -32,7 +32,7 @@ const PrestadorTable = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('http://localhost:3000/prestador/listar');
+        const response = await fetch(import.meta.env.VITE_API_URL+'/prestador/listar');
         if (!response.ok) {
           throw new Error('Error al obtener las prestadores');
         }
@@ -47,7 +47,7 @@ const PrestadorTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/prestador/${id}`, {
+      const response = await fetch(`import.meta.env.VITE_API_URL/prestador/${id}`, {
         method: 'DELETE'
       });
       if (!response.ok) {
@@ -65,10 +65,11 @@ const PrestadorTable = () => {
 
   return (
     <>
-    <h3 className='titulo'>Eliminar o Editar Prestador</h3>
-
+    <div className='titulo-btn'>
+      <h2 className='titulo'>Prestadores</h2>
+      <button className='create-button' onClick={handleOpenModal}>Crear Prestador</button>
+    </div>
     <div style={{ display: 'flex', alignItems: 'center' }}>
-        <button className='create-button' onClick={handleOpenModal}>Crear Prestador</button>
         <PrestadorModalCreate isOpen={modalIsOpen} onClose={handleCloseModal} />
         {prestadorSeleccionado && (
           <PrestadorModalEdit
@@ -87,6 +88,7 @@ const PrestadorTable = () => {
           <th>Especialidad</th>
           <th>Zona</th>
           <th>Dirección</th>
+          <th>Editar/Eliminar</th>
         </tr>
       </thead>
       <tbody>

@@ -24,8 +24,10 @@
         ariaHideApp={false} 
         >
         <div>
-            <h2>Crear Institución</h2>
-            <button onClick={handleCloseModal}>x</button>
+            <div className="header-modal">
+                <h2>Editar institución</h2>
+                <button onClick={handleCloseModal}>x</button>
+            </div>
             <InstitucionFormUpdate onClose={handleCloseModal} institucion={institucion}/>
         </div>
         </Modal>

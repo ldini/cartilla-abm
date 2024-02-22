@@ -24,8 +24,10 @@
         ariaHideApp={false} 
         >
         <div>
-            <h2>Crear</h2>
-            <button onClick={handleCloseModal}>x</button>
+            <div className="header-modal">
+                <h2>Crear Prestador</h2>
+                <button onClick={handleCloseModal}>x</button>
+            </div>
             <PrestadorFormCreate onClose={handleCloseModal}/>
         </div>
         </Modal>
